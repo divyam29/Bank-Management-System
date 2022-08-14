@@ -42,7 +42,7 @@
                 <li class="nav-item">
 
                     <!-- ! Here change active  -->
-                    
+
                     <a class="nav-link text-white {% block dashboard %}{% endblock %}" href="/">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
@@ -51,7 +51,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white {% block customers %}{% endblock %}" href="{% url 'staff:customers' %}">
+                    <a class="nav-link text-white {% block customers %}{% endblock %}"
+                        href="{% url 'staff:customers' %}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">group</i>
                         </div>
@@ -67,9 +68,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white {% block transactions %}{% endblock %}" href="{% url 'staff:transactions' %}">
+                    <a class="nav-link text-white {% block transactions %}{% endblock %}"
+                        href="{% url 'staff:transactions' %}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">paid</i>
+                            <i class="material-icons opacity-10">receipt</i>
                         </div>
                         <span class="nav-link-text ms-1">Transactions</span>
                     </a>
@@ -77,7 +79,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white {% block loans %}{% endblock %}" href="{% url 'staff:loans' %}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">receipt</i>
+                            <i class="material-icons opacity-10">paid</i>
                         </div>
                         <span class="nav-link-text ms-1">Loans</span>
                     </a>
@@ -275,13 +277,28 @@
         {% block content %}
         {% endblock %}
         <!-- End Block -->
-
+        <footer class="footer py-4  ">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6 mb-lg-0 mb-4">
+                        <div class="copyright text-center text-sm text-muted text-lg-start">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>,
+                            made with <i class="fa fa-heart"></i> by
+                            <a href="" class="font-weight-bold">Divyam Jain</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script src="{% static 'dashboard/js/core/popper.min.js' %}"></script>
         <script src="{% static 'dashboard/js/core/bootstrap.min.js' %}"></script>
         <script src="{% static 'dashboard/js/plugins/perfect-scrollbar.min.js' %}"></script>
         <script src="{% static 'dashboard/js/plugins/smooth-scrollbar.min.js' %}"></script>
         <script src="{% static 'dashboard/js/plugins/chartjs.min.js' %}"></script>
-        
+
         <!-- <script>
             var ctx = document.getElementById("chart-bars").getContext("2d");
 
