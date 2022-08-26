@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from .models import *
 
 # Create your views here.
 
@@ -16,32 +17,40 @@ def staff_dashboard(request):
 
 def staff_customers(request):
     if request.user.is_authenticated:
+        customers=Customers.objects.all()
         context = {
             'staff': f'{request.user.first_name} {request.user.last_name}',
+            'customers':customers,
         }
         return render(request, template_name='staff-customer.html',context=context)
     return redirect('staff:login')
 
 def staff_accounts(request):
     if request.user.is_authenticated:
+        accounts=Accounts.objects.all()
         context = {
             'staff': f'{request.user.first_name} {request.user.last_name}',
+            'accounts':accounts,
         }
         return render(request, template_name='staff-accounts.html',context=context)
     return redirect('staff:login')
 
 def staff_transactions(request):
     if request.user.is_authenticated:
+        transactions=Transactions.objects.all()
         context = {
             'staff': f'{request.user.first_name} {request.user.last_name}',
+            'transactions':transactions,
         }
         return render(request, template_name='staff-transaction.html',context=context)
     return redirect('staff:login')
 
 def staff_loans(request):
     if request.user.is_authenticated:
+        loans=Loans.objects.all()
         context = {
             'staff': f'{request.user.first_name} {request.user.last_name}',
+            'loans':loans,
         }
         return render(request, template_name='staff-loan.html',context=context)
     return redirect('staff:login')

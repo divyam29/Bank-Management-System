@@ -41,30 +41,32 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for customer in customers %}
                                 <tr>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">1001</h6>
+                                                <h6 class="mb-0 text-sm">{{customer.cust_id}}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">202201</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{customer.acc_id}}</p>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <p class="text-sm font-weight-bold mb-0">Divyam Jain</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{customer.cust_name}}</p>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <p class="text-sm font-weight-bold mb-0">Ambala</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{customer.address}}</p>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <p class="text-sm font-weight-bold mb-0">JOPL8720L</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{customer.pan}}</p>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <p class="text-sm font-weight-bold mb-0">29-JUL-2002</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{customer.dob}}</p>
                                     </td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
