@@ -18,6 +18,9 @@ def staff_dashboard(request):
 def staff_customers(request):
     if request.user.is_authenticated:
         customers=Customers.objects.all()
+        if request.method=='POST':
+            c_name=request.POST.get('search')
+            customers=Customers.objects.filter(cust_name__icontains=c_name)
         context = {
             'staff': f'{request.user.first_name} {request.user.last_name}',
             'customers':customers,
@@ -28,6 +31,9 @@ def staff_customers(request):
 def staff_accounts(request):
     if request.user.is_authenticated:
         accounts=Accounts.objects.all()
+        if request.method=='POST':
+            c_name=request.POST.get('search')
+            accounts=Accounts.objects.filter(acc_id__icontains=c_name)
         context = {
             'staff': f'{request.user.first_name} {request.user.last_name}',
             'accounts':accounts,
@@ -38,6 +44,12 @@ def staff_accounts(request):
 def staff_transactions(request):
     if request.user.is_authenticated:
         transactions=Transactions.objects.all()
+        if request.method=='POST':
+            c_name=request.POST.get('search')
+            if c_name!="":
+                transactions=Transactions.objects.filter(acc_id=c_name)
+
+        print(transactions)
         context = {
             'staff': f'{request.user.first_name} {request.user.last_name}',
             'transactions':transactions,
